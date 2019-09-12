@@ -1,7 +1,7 @@
 #!/usr/bin/env node
 
 const { spawnSync } = require('child_process')
-const { writeFileSync, copyFileSync, statSync, mkdirSync } = require('fs')
+const { writeFileSync, copyFileSync, mkdirSync, existsSync } = require('fs')
 const { resolve, join } = require('path')
 const { cwd, chdir } = require('process')
 
@@ -11,9 +11,7 @@ const getOptions = require('./modules/getOptions.js')
 
 const dirPath = resolve(process.argv[2])
 
-try {
-  statSync(dirPath).isDirectory()
-} catch (e) {
+if (!existsSync(dirPath)) {
   mkdirSync(dirPath)
 }
 
