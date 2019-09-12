@@ -39,7 +39,7 @@ const react = require('./config/react.js')
 const extras = require('./config/extras.js')(
   checkReact,
   pkg.name,
-  base.ignorePatterns
+  base.ignoreGlobs
 )
 
 const options = getOptions(validArgs, { js, react, sass })
@@ -59,7 +59,7 @@ const nwPkg = {
   scripts: { ...cmds, ...base.allRunners, ...extras.extraCmds },
   babel: extras.babelConf,
   eslintConfig: extras.eslintConf,
-  eslintIgnore: base.ignorePatterns,
+  eslintIgnore: base.ignoreGlobs,
   prettier: extras.prettierConf,
   browserslist: extras.browserslistConf
 }

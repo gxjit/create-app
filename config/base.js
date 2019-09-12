@@ -11,9 +11,9 @@ module.exports = {
   allRunners: {
     build: 'concurrently --raw "npm:build-*"',
     watch: 'concurrently --raw "npm:watch-*"',
-    'prod-build': 'concurrently --raw "npm:prod-*"'
+    prod: 'concurrently --raw "npm:prod-*"'
   },
-  ignorePatterns: [
+  ignoreGlobs: [
     '**/node_modules/**',
     '**/.npm/**',
     '**/*.min.js',
