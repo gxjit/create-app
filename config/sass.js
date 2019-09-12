@@ -1,11 +1,12 @@
+const sassSrc = './src/styles/**/*.s*ss'
+const sassDest = './build/assets/styles/'
+
 module.exports = {
   cmds: {
-    'build-sass':
-      'sass --style=compressed --no-source-map "./src/styles/**/*.s*ss" "./build/assets/styles/"',
-    'watch-sass': 'chokidar "./src/styles/**/*.s*ss" "npm run sass"',
-    'prod-sass':
-      'npm run build-sass && postcss --env "production" --replace "./build/assets/styles/*.css"',
-    'fmt-sass': 'prettier --write "./src/styles/**/*.*ss"'
+    'build-sass': `sass --style=compressed --no-source-map "${sassSrc}" "${sassDest}"`,
+    'watch-sass': `chokidar "${sassSrc}" "npm run sass"`,
+    'prod-sass': `npm run build-sass && postcss --env "production" --replace "${sassDest}*.css"`,
+    'fmt-sass': `prettier --write "${sassSrc}"`
   },
   devDeps: [
     '@fullhuman/postcss-purgecss',

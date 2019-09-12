@@ -1,12 +1,14 @@
+const jsSrc = './src/scripts/**/*.js*'
+
 module.exports = reactCheck => ({
   cmds: {
     'build-js': reactCheck ? 'rollup -c --environment REACT:True' : 'rollup -c',
-    'watch-js': 'chokidar "./src/scripts/**/*.js*" "npm run build-js"',
+    'watch-js': `chokidar "${jsSrc}" "npm run build-js"`,
     'prod-js': reactCheck
       ? 'rollup -c --environment PROD:True,REACT:True'
       : 'rollup -c --environment PROD:True',
-    'lint-js': 'eslint --fix "./src/scripts/**/*.js*"',
-    'fmt-js': 'prettier --write "./src/scripts/**/*.js*"'
+    'lint-js': `eslint --fix "${jsSrc}"`,
+    'fmt-js': `prettier --write "${jsSrc}"`
   },
   devDeps: [
     '@babel/core',
