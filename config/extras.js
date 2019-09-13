@@ -26,8 +26,7 @@ module.exports = (reactCheck, pkgName, ignorePatterns) => ({
   },
   browserslistConf: {
     production: [
-      'defaults',
-      'last 2 versions and not dead',
+      'defaults and not < 0.1%',
       '> 0.2% and not dead'
     ],
     development: [

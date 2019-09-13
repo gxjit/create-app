@@ -10,7 +10,6 @@ const flattenObj = require('./modules/flattenObj.js')
 const getOptions = require('./modules/getOptions.js')
 
 const dirPath = resolve(process.argv[2])
-
 if (!existsSync(dirPath)) {
   mkdirSync(dirPath)
 }
@@ -78,9 +77,10 @@ writeFileSync('package.json', JSON.stringify(nwPkg, null, 2), {
 dotFiles.forEach(file =>
   copyFileSync(join(__dirname, 'config', file), join(dirPath, file))
 )
+;[installDevDeps, installDeps].forEach(pkgs => spawnSyncCr('pnpm', pkgs))
 
-spawnSyncCr('pnpm', installDevDeps)
-spawnSyncCr('pnpm', installDeps)
+// spawnSyncCr('pnpm', installDevDeps)
+// spawnSyncCr('pnpm', installDeps)
 
 // const pug = {
 //   pug: 'pug "./src/markup/**/*.pug" -O "./src/data/data.json" -o "./build/"'
