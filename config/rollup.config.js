@@ -9,7 +9,7 @@ const react = process.env.REACT
 
 const globals = react ? { react: 'React', 'react-dom': 'ReactDOM' } : {}
 
-const input = 'src/scripts/App.js'
+const input = 'src/scripts/App.jsx'
 
 const output = {
   file: 'build/assets/scripts/bundle.js',

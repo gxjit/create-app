@@ -1,9 +1,22 @@
+// const pollyfills = false
+// "presets": [
+//   [
+//     "@babel/preset-env",
+//     {
+//       "modules": false,
+//       "useBuiltIns": "usage",
+//       "corejs": 3
+//     }
+//   ],
+// core-js regenerator-runtime
+// or eslint detection of polyfills eslint-plugin-compat
+
 module.exports = (reactCheck, pkgName, ignorePatterns) => ({
   extraCmds: {
     serve: 'live-server --port=8080 --host=10.1.1.9 --no-browser',
-    'cp-markup': 'cp "./src/markup/*.htm*" "./build/"',
-    'cp-vendor': 'cp "./src/vendor/*.*" "./build/vendor/"',
-    'export-build': `cp -r "./build/**" "../${pkgName}-export/."`
+    'cp-markup': 'cp ./src/markup/*.htm* ./build/',
+    'cp-vendor': 'cp ./src/vendor/*.* ./build/assets/vendor/',
+    'export-build': `cp -r ./build/** ../${pkgName}-export/.`
   },
   babelConf: {
     presets: reactCheck
@@ -25,10 +38,7 @@ module.exports = (reactCheck, pkgName, ignorePatterns) => ({
     endOfLine: 'lf'
   },
   browserslistConf: {
-    production: [
-      'defaults and not < 0.1%',
-      '> 0.2% and not dead'
-    ],
+    production: ['defaults and not < 0.1%', '> 0.2% and not dead'],
     development: [
       'last 2 chrome versions',
       'last 2 firefox versions',

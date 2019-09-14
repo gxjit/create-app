@@ -79,9 +79,6 @@ dotFiles.forEach(file =>
 )
 ;[installDevDeps, installDeps].forEach(pkgs => spawnSyncCr('pnpm', pkgs))
 
-// spawnSyncCr('pnpm', installDevDeps)
-// spawnSyncCr('pnpm', installDeps)
-
 // const pug = {
 //   pug: 'pug "./src/markup/**/*.pug" -O "./src/data/data.json" -o "./build/"'
 // }
