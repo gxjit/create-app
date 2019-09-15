@@ -34,14 +34,14 @@ const babelConf = babel({
 })
 
 const replaceConf = replace({
-  'process.env.NODE_ENV': JSON.stringify('production')
+  'process.env.NODE_ENV': JSON.stringify(
+    production ? 'production' : 'development'
+  )
 })
 
-const pluginsDev = [resolveConf, commonjs()]
+const pluginsDev = [replaceConf, babelConf, resolveConf, commonjs()]
 
-const plugins = production
-  ? [replaceConf, babelConf, ...pluginsDev, terser()]
-  : pluginsDev
+const plugins = production ? [...pluginsDev, terser()] : pluginsDev
 
 export default {
   external,
