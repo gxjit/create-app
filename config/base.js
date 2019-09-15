@@ -14,6 +14,7 @@ module.exports = {
     prod: 'concurrently --raw "npm:prod-*"'
   },
   ignoreGlobs: [
+    '**/.git/**',
     '**/node_modules/**',
     '**/.npm/**',
     '**/*.min.js',
