@@ -11,6 +11,7 @@ module.exports = reactCheck => ({
     'fmt-js': `prettier --write "${jsSrc}"`
   },
   devDeps: [
+    'core-js',
     '@babel/core',
     '@babel/preset-env',
     '@babel/plugin-external-helpers',
