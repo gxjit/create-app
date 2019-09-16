@@ -1,16 +1,3 @@
-// const pollyfills = false
-// "presets": [
-//   [
-//     "@babel/preset-env",
-//     {
-//       "modules": false,
-//       "useBuiltIns": "usage",
-//       "corejs": 3
-//     }
-//   ],
-// core-js regenerator-runtime
-// or eslint detection of polyfills eslint-plugin-compat
-
 module.exports = (reactCheck, pkgName, ignorePatterns) => ({
   extraCmds: {
     serve: 'live-server --port=8080 --host=10.1.1.9 --no-browser',
@@ -48,3 +35,28 @@ module.exports = (reactCheck, pkgName, ignorePatterns) => ({
     ]
   }
 })
+
+// https://github.com/gxjit/babel-preset-preact
+
+// "plugins": [
+//       [
+//         "@babel/plugin-transform-react-jsx",
+//         {
+//           "pragma": "h",
+//           "pragmaFrag": "Fragment"
+//         }
+//       ]
+//     ],
+
+// const pollyfills = false
+// "presets": [
+//   [
+//     "@babel/preset-env",
+//     {
+//       "modules": false,
+//       "useBuiltIns": "usage",
+//       "corejs": 3
+//     }
+//   ],
+// core-js regenerator-runtime
+// or eslint detection of polyfills eslint-plugin-compat
