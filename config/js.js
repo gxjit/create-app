@@ -3,7 +3,7 @@ const jsSrc = './src/scripts/**/*.js*'
 module.exports = reactCheck => ({
   cmds: {
     'build-js': reactCheck ? 'rollup -c --environment REACT:True' : 'rollup -c',
-    'watch-js': `chokidar "${jsSrc}" "npm run build-js"`,
+    'watch-js': `chokidar "${jsSrc}" -c "npm run build-js"`,
     'prod-js': reactCheck
       ? 'rollup -c --environment PROD:True,REACT:True'
       : 'rollup -c --environment PROD:True',

@@ -3,8 +3,10 @@ module.exports = (reactCheck, pkgName, ignorePatterns) => ({
     serve: 'live-server --port=8080 --host=10.1.1.9 --no-browser',
     'cp-markup': 'cp ./src/markup/*.htm* ./build/',
     'cp-vendor': 'cp ./src/vendor/*.* ./build/assets/vendor/',
+    'cp-data': 'cp ./src/data/*.* ./build/assets/data/',
     'export-build': `cp -r ./build/** ../${pkgName}-export/.`,
-    'mkdirs-all': 'mkdir -p ./src/vendor/ ./src/scripts/ ./src/styles/ ./src/markup/ ./build/assets/vendor/ ./build/assets/scripts/ ./build/assets/styles/'
+    'mkdirs-all':
+      'mkdir -p ./src/vendor/ ./src/scripts/ ./src/styles/ ./src/markup/ ./build/assets/vendor/ ./build/assets/scripts/ ./build/assets/styles/'
   },
   babelConf: {
     presets: reactCheck
