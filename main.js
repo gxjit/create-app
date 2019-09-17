@@ -25,7 +25,8 @@ const validArgs = checkArgs(args, ['js', 'sass', 'react'])
 const spawnSyncCr = (x, y) =>
   spawnSync(x, y, { cwd: dirPath, stdio: ['inherit', 'ignore', 'inherit'] })
 
-spawnSyncCr('pnpm', ['init', ['-y']])
+spawnSyncCr('npm', ['init', ['-y']])
+spawnSyncCr('git', ['init'])
 const pkg = require(join(dirPath, 'package.json'))
 
 const checkReact = validArgs.includes('react')
@@ -77,7 +78,7 @@ writeFileSync('package.json', JSON.stringify(nwPkg, null, 2), {
 dotFiles.forEach(file =>
   copyFileSync(join(__dirname, 'config', file), join(dirPath, file))
 )
-;[installDevDeps, installDeps].forEach(pkgs => spawnSyncCr('pnpm', pkgs))
+;[installDevDeps, installDeps].forEach(pkgs => spawnSyncCr('npm', pkgs))
 
 // const pug = {
 //   pug: 'pug "./src/markup/**/*.pug" -O "./src/data/data.json" -o "./build/"'
