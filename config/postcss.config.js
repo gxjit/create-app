@@ -1,7 +1,7 @@
 const autoprefixer = require('autoprefixer')
 
 const purgecss = require('@fullhuman/postcss-purgecss')({
-  content: ['./src/scripts/*.js*', './src/markup/*.htm*']
+  content: ['./src/scripts/**/*.js*', './src/markup/*.htm*']
 })
 
 const cssnano = require('cssnano')({

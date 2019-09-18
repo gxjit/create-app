@@ -79,7 +79,3 @@ dotFiles.forEach(file =>
   copyFileSync(join(__dirname, 'config', file), join(dirPath, file))
 )
 ;[installDevDeps, installDeps].forEach(pkgs => spawnSyncCr('npm', pkgs))
-
-// const pug = {
-//   pug: 'pug "./src/markup/**/*.pug" -O "./src/data/data.json" -o "./build/"'
-// }
