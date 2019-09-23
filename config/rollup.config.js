@@ -7,25 +7,25 @@ import { terser } from 'rollup-plugin-terser'
 const production = process.env.PROD
 const react = process.env.REACT
 
-const globals = react ? { react: 'React', 'react-dom': 'ReactDOM' } : {}
+// const globals = react ? { react: 'React', 'react-dom': 'ReactDOM' } : {}
 
 const input = 'src/scripts/App.jsx'
 
 const output = {
   file: 'build/assets/scripts/bundle.js',
   format: 'iife',
-  globals: { ...globals }
+  globals: {}
 }
 
-const globalsArray = Object.keys(output.globals) || []
+// const globalsArray = Object.keys(output.globals) || []
 
-const external = globalsArray
+// const external = globalsArray
 
 const resolveConf = resolve({
   mainFields: ['module', 'main'],
   extensions: ['.mjs', '.js', '.jsx', '.json'],
   preferBuiltins: false, // Default: true
-  dedupe: globalsArray
+  dedupe: react ? ['react', 'react-dom'] : []
   // jail: '.src/scripts/', // Modules outside this path will be external
 })
 
@@ -44,7 +44,7 @@ const pluginsDev = [replaceConf, babelConf, resolveConf, commonjs()]
 const plugins = production ? [...pluginsDev, terser()] : pluginsDev
 
 export default {
-  external,
+  // external,
   input,
   plugins,
   output
